@@ -9,12 +9,12 @@
 using namespace std;
 class Solution {
 private:
-    static const int DIR[5];
     void pacificAtlantic_helper(vector<vector<int>>& heights, vector<vector<bool>>& reachable, int x, int y) {
         if (reachable[x][y])
             return ;
         int m = heights.size(), n = heights[0].size();
         reachable[x][y] = true;
+        static const int DIR[5] = { 0, 1, 0, -1, 0 };
         for (int i = 0; i < 4; i++)
         {
             int nx = x + DIR[i], ny = y + DIR[i+1];
@@ -44,6 +44,5 @@ public:
         return ans;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0 };
 // @lc code=end
 

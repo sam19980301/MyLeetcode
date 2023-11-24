@@ -9,10 +9,10 @@
 using namespace std;
 class Solution {
 private:
-    static const int DIR[5];
     void longestIncreasingPath_helper(vector<vector<int>>& matrix, vector<vector<int>>& paths, int i, int j)
     {
         int m = matrix.size(), n = matrix[0].size(), curr = 1;
+        static const int DIR[5] = { 0, 1, 0, -1, 0 };
         for (int k = 0; k < 4; k++)
         {
             int ni = i + DIR[k], nj = j + DIR[k+1];
@@ -40,6 +40,5 @@ public:
         return ans;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0 };
 // @lc code=end
 

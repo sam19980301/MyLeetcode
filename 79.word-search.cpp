@@ -9,7 +9,6 @@
 using namespace std;
 class Solution {
 private:
-    static const int DIR[5];
     bool exist_helper(vector<vector<char>>& board, string& word, int i, int j, int k) {
         int m = board.size(), n = board[0].size();
         if (k == word.size())
@@ -17,6 +16,7 @@ private:
         if (i<0 || i>=m || j<0 || j>=n || board[i][j] != word[k])
             return false;
         board[i][j] = ' ';
+        static const int DIR[5] = { 0, 1, 0, -1, 0 };
         for (int l = 0; l < 4; l++)
             if (exist_helper(board, word, i+DIR[l], j+DIR[l+1], k+1))
                 return true;
@@ -32,6 +32,5 @@ public:
         return false;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0 };
 // @lc code=end
 

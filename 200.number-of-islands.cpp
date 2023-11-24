@@ -9,12 +9,12 @@
 using namespace std;
 class Solution {
 private:
-    static const int DIR[5];
     void numIslands_helper(vector<vector<char>>& grid, int i, int j){ // dfs
         int m = grid.size(), n = grid[0].size();
         if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] == '0')
             return ;
         grid[i][j] = '0';
+        static const int DIR[5] = { 0, 1, 0, -1, 0 };
         for (int k = 0; k < 4; k++)
             numIslands_helper(grid, i+DIR[k], j+DIR[k+1]);
     }
@@ -33,6 +33,5 @@ public:
         return ans;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0 };
 // @lc code=end
 

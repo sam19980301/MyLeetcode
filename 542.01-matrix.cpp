@@ -8,8 +8,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
-private:
-    static const int DIR[5];
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
         int m = mat.size(), n = mat[0].size();
@@ -32,6 +30,7 @@ public:
             {
                 auto [x, y] = q.front();
                 q.pop();
+                static const int DIR[5] = { 0, 1, 0, -1, 0 };
                 for (int j = 0; j < 4; j++)
                 {
                     int nx = x + DIR[j], ny = y + DIR[j+1];
@@ -46,6 +45,5 @@ public:
         return ans;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0};
 // @lc code=end
 

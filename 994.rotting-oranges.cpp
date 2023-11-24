@@ -8,8 +8,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
-private:
-    static const int DIR[5];
 public:
     int orangesRotting(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size(), remained = 0;
@@ -32,6 +30,7 @@ public:
                 q.pop();
                 for (int j = 0; j < 4; j++)
                 {
+                    static const int DIR[5] = { 0, 1, 0, -1, 0 };
                     int nx = x + DIR[j], ny = y + DIR[j+1];
                     if (nx < 0 || nx >= m || ny < 0 || ny >= n || grid[nx][ny] != 1)
                         continue;
@@ -44,6 +43,5 @@ public:
         return remained ? -1 : min;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0 };
 // @lc code=end
 

@@ -9,7 +9,6 @@
 using namespace std;
 class Solution {
 private:
-    static const int DIR[5];
     class Trie
     {
     public:
@@ -60,6 +59,7 @@ private:
             node->is_terminal = false;
         }
 
+        static const int DIR[5] = { 0, 1, 0, -1, 0 };
         for (int k = 0; k < 4; k++)
             findWords_helper(board, ans, node, curr, i + DIR[k],  j + DIR[k+1]);
 
@@ -81,6 +81,5 @@ public:
         return ans;
     }
 };
-const int Solution::DIR[5] = { 0, 1, 0, -1, 0 };
 // @lc code=end
 
