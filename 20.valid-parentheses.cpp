@@ -16,15 +16,25 @@ class Solution
         for (auto c : s)
         {
             if (c == '(')
+            {
                 stk.push(')');
+            }
             else if (c == '{')
+            {
                 stk.push('}');
+            }
             else if (c == '[')
+            {
                 stk.push(']');
+            }
             else if (!stk.empty() && c == stk.top())
+            {
                 stk.pop();
+            }
             else
+            {
                 return false;
+            }
         }
         return stk.empty();
     }

@@ -12,15 +12,18 @@ class Solution
   public:
     vector<int> twoSum(vector<int> &nums, int target)
     {
-        unordered_map<int, size_t> m;
-        for (size_t i = 0; i < nums.size(); i++)
+        unordered_map<int, int> m;
+        for (auto v_it = nums.begin(); v_it != nums.end(); v_it++)
         {
-            int val = nums[i];
-            auto it = m.find(target - val);
-            if (it != m.end())
-                return {(int)it->second, (int)i};
-            m[val] = i;
+            auto m_it = m.find(target - *v_it);
+            const int idx = static_cast<int>(v_it - nums.begin());
+            if (m_it != m.end())
+            {
+                return {m_it->second, idx};
+            }
+            m[*v_it] = idx;
         }
+        assert(0);
         return {};
     }
 };

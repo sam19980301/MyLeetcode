@@ -25,9 +25,9 @@ class Solution
   public:
     ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
     {
-        unique_ptr<ListNode> sentinel = make_unique<ListNode>(std::numeric_limits<int>::min());
+        unique_ptr<ListNode> sentinel = make_unique<ListNode>(numeric_limits<int>::min());
         ListNode *curr = sentinel.get();
-        while (list1 && list2)
+        while (list1 != nullptr && list2 != nullptr)
         {
             if (list1->val <= list2->val)
             {
@@ -41,10 +41,14 @@ class Solution
             }
             curr = curr->next;
         }
-        if (list1)
+        if (list1 != nullptr)
+        {
             curr->next = list1;
-        if (list2)
+        }
+        if (list2 != nullptr)
+        {
             curr->next = list2;
+        }
         return sentinel->next;
     }
 };
