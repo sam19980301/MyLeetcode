@@ -23,7 +23,6 @@ class Solution
             }
             m[*v_it] = idx;
         }
-        assert(0);
         return {};
     }
 };

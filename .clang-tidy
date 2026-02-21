@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-altera-*,-llvmlibc-*,-bugprone-easily-swappable-parameters,-cppcoreguidelines-avoid-magic-numbers,-google-build-using-namespace,-misc-include-cleaner,-misc-no-recursion,-modernize-use-trailing-return-type,-performance-unnecessary-value-param,-readability-convert-member-functions-to-static,-readability-identifier-length,-readability-magic-numbers'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-altera-*,-boost-*,-llvmlibc-*,-bugprone-easily-swappable-parameters,-cppcoreguidelines-avoid-magic-numbers,-google-build-using-namespace,-misc-include-cleaner,-misc-no-recursion,-modernize-use-trailing-return-type,-performance-unnecessary-value-param,-readability-convert-member-functions-to-static,-readability-identifier-length,-readability-magic-numbers'
 WarningsAsErrors: '*'
 HeaderFileExtensions:
   - ''
@@ -25,9 +25,6 @@ CheckOptions:
   abseil-string-find-str-contains.IncludeStyle: llvm
   abseil-string-find-str-contains.StringLikeClasses: '::std::basic_string;::std::basic_string_view;::absl::string_view'
   android-comparison-in-temp-failure-retry.RetryMacros: TEMP_FAILURE_RETRY
-  boost-use-ranges.IncludeBoostSystem: 'true'
-  boost-use-ranges.IncludeStyle: llvm
-  boost-use-ranges.UseReversePipe: 'false'
   bugprone-argument-comment.CommentBoolLiterals: '0'
   bugprone-argument-comment.CommentCharacterLiterals: '0'
   bugprone-argument-comment.CommentFloatLiterals: '0'

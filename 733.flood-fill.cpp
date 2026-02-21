@@ -16,7 +16,7 @@ class Solution
     {
         const size_t m = image.size();
         const size_t n = image[0].size();
-        if (sr < 0 || sr >= static_cast<int>(m) || sc < 0 || sc >= static_cast<int>(n))
+        if (sr < 0 || cmp_greater_equal(sr, m) || sc < 0 || cmp_greater_equal(sc, n))
         {
             return;
         }
