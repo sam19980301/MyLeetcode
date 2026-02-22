@@ -15,8 +15,8 @@ class Solution
         string ans;
         auto a_it = a.rbegin();
         auto b_it = b.rbegin();
-        int n = 0;
-        while (a_it != a.rend() || b_it != b.rend())
+        unsigned int n = 0;
+        while (a_it != a.rend() || b_it != b.rend() || n != 0)
         {
             if (a_it != a.rend())
             {
@@ -26,12 +26,8 @@ class Solution
             {
                 n += *b_it++ - '0';
             }
-            ans.push_back(static_cast<char>('0' + (n % 2)));
-            n /= 2;
-        }
-        if (n != 0)
-        {
-            ans.push_back(static_cast<char>('0' + n));
+            ans.push_back(static_cast<char>('0' + (n & 1U)));
+            n >>= 1U;
         }
         ranges::reverse(ans);
         return ans;

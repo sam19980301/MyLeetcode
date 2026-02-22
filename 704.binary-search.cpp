@@ -29,7 +29,7 @@ class Solution
 
         if (l_it != nums.end() && *l_it == target)
         {
-            return static_cast<int>(l_it - nums.begin());
+            return static_cast<int>(distance(nums.begin(), l_it));
         }
         return -1;
     }

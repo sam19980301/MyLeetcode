@@ -9,6 +9,9 @@
 using namespace std;
 class Solution
 {
+  private:
+    constexpr static size_t arr_size = 128;
+
   public:
     bool canConstruct(string ransomNote, string magazine)
     {
@@ -17,13 +20,13 @@ class Solution
             return false;
         }
 
-        array<int, 128> cnts{};
-        for (const unsigned char ch : magazine)
+        array<int, arr_size> cnts{};
+        for (const char ch : magazine)
         {
             cnts.at(ch)++;
         }
 
-        for (const unsigned char ch : ransomNote)
+        for (const char ch : ransomNote)
         {
             if (cnts.at(ch)-- == 0)
             {

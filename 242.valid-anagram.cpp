@@ -9,6 +9,9 @@
 using namespace std;
 class Solution
 {
+  private:
+    constexpr static size_t arr_size = 128;
+
   public:
     bool isAnagram(string s, string t)
     {
@@ -17,13 +20,13 @@ class Solution
             return false;
         }
 
-        array<int, 128> cnts{};
-        for (const unsigned char ch : s)
+        array<int, arr_size> cnts{};
+        for (const char ch : s)
         {
             cnts.at(ch)++;
         }
 
-        for (const unsigned char ch : t)
+        for (const char ch : t)
         {
             if (cnts.at(ch)-- == 0)
             {

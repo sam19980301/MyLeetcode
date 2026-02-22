@@ -15,7 +15,7 @@ def add_header_batched(dir_path: str) -> None:
 
         with open(os.path.join(dir_path, file), "r") as f:
             content = f.readlines()
-        
+
         line_no: int = 0
         add_include_header_statements: bool = False
         struct_str_list: list[str] = list()

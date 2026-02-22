@@ -15,13 +15,13 @@ class Solution
     void floodFill_helper(vector<vector<int>> &image, int sr, int sc, int from_color, int to_color)
     {
         const size_t m = image.size();
-        const size_t n = image[0].size();
+        const size_t n = image.front().size();
         if (sr < 0 || cmp_greater_equal(sr, m) || sc < 0 || cmp_greater_equal(sc, n))
         {
             return;
         }
 
-        int &pixel_value = image[sr][sc];
+        int &pixel_value = image.at(sr).at(sc);
         if (pixel_value != from_color || pixel_value == to_color)
         {
             return;
@@ -37,7 +37,7 @@ class Solution
   public:
     vector<vector<int>> floodFill(vector<vector<int>> &image, int sr, int sc, int color)
     {
-        floodFill_helper(image, sr, sc, image[sr][sc], color);
+        floodFill_helper(image, sr, sc, image.at(sr).at(sc), color);
         return image;
     }
 };

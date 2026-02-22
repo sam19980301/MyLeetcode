@@ -9,12 +9,15 @@
 using namespace std;
 class Solution
 {
+  private:
+    constexpr static size_t arr_size = 128;
+
   public:
     int longestPalindrome(string s)
     {
         int ans = 0;
-        array<bool, 128> cnts{};
-        for (const unsigned char ch : s)
+        array<bool, arr_size> cnts{};
+        for (const char ch : s)
         {
             bool &is_odd = cnts.at(ch);
             if (is_odd)
