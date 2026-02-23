@@ -15,7 +15,6 @@ class Solution
   public:
     int mostBooked(int n, vector<vector<int>> &meetings)
     {
-        // TODO(sam): Review
         using Time = int64_t;
         using ActiveMeeting = pair<Time, int>; // end time, room id
 

@@ -12,7 +12,6 @@ class Solution
   public:
     bool backspaceCompare(string s, string t)
     {
-        // TODO(sam): Review
         auto bs_increment = [](string::reverse_iterator it, string &str) -> string::reverse_iterator {
             int cnt = 0;
             while (it != str.rend() && (*it == '#' || cnt > 0))
