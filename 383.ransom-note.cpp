@@ -28,7 +28,7 @@ class Solution
 
         for (const char ch : ransomNote)
         {
-            if (cnts.at(ch)-- == 0)
+            if (!cnts.at(ch)--)
             {
                 return false;
             }

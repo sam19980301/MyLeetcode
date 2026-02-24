@@ -26,7 +26,7 @@ class Solution
   private:
     int diameterOfBinaryTree_helper(TreeNode *root, int &diameter)
     {
-        if (root == nullptr)
+        if (!root)
         {
             return 0;
         }

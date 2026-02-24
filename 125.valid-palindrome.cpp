@@ -20,11 +20,11 @@ class Solution
         auto r_it = s.end() - 1;
         while (l_it < r_it)
         {
-            while (l_it < r_it && isalnum(*l_it) != 0)
+            while (l_it < r_it && !isalnum(*l_it))
             {
                 l_it++;
             }
-            while (l_it < r_it && isalnum(*r_it) != 0)
+            while (l_it < r_it && !isalnum(*r_it))
             {
                 r_it--;
             }

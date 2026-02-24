@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-altera-*,-boost-*,-llvmlibc-*,-bugprone-easily-swappable-parameters,-fuchsia-default-arguments-calls,-google-build-using-namespace,-misc-include-cleaner,-misc-no-recursion,-modernize-use-trailing-return-type,-performance-unnecessary-value-param,-readability-convert-member-functions-to-static,-readability-identifier-length'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-altera-*,-boost-*,-llvmlibc-*,-bugprone-easily-swappable-parameters,-fuchsia-default-arguments-calls,-google-build-using-namespace,-misc-include-cleaner,-misc-no-recursion,-modernize-use-trailing-return-type,-performance-unnecessary-value-param,-readability-convert-member-functions-to-static,-readability-identifier-length,-readability-implicit-bool-conversion'
 WarningsAsErrors: '*'
 HeaderFileExtensions:
   - ''
@@ -430,9 +430,6 @@ CheckOptions:
   readability-identifier-naming.GetConfigPerFile: 'true'
   readability-identifier-naming.IgnoreFailedSplit: 'false'
   readability-identifier-naming.IgnoreMainLikeFunctions: 'false'
-  readability-implicit-bool-conversion.AllowIntegerConditions: 'false'
-  readability-implicit-bool-conversion.AllowPointerConditions: 'false'
-  readability-implicit-bool-conversion.UseUpperCaseLiteralSuffix: 'false'
   readability-inconsistent-declaration-parameter-name.IgnoreMacros: 'true'
   readability-inconsistent-declaration-parameter-name.Strict: 'false'
   readability-magic-numbers.IgnoreAllFloatingPointValues: 'false'

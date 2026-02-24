@@ -16,7 +16,7 @@ class Solution
         auto a_it = a.rbegin();
         auto b_it = b.rbegin();
         unsigned int n = 0;
-        while (a_it != a.rend() || b_it != b.rend() || n != 0)
+        while (a_it != a.rend() || b_it != b.rend() || n)
         {
             if (a_it != a.rend())
             {

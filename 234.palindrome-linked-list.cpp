@@ -29,7 +29,7 @@ class Solution
         const ListNode *fast = head;
 
         // slow: upper-mid node
-        while (fast != nullptr && fast->next != nullptr)
+        while (fast && fast->next)
         {
             slow = slow->next;
             fast = fast->next->next;
@@ -38,7 +38,7 @@ class Solution
         // prev: reverse list head for 2nd half (staring from slow)
         ListNode *curr = slow;
         ListNode *prev = nullptr;
-        while (curr != nullptr)
+        while (curr)
         {
             ListNode *next = curr->next;
             curr->next = prev;
@@ -49,7 +49,7 @@ class Solution
         // compare
         const ListNode *list1 = head; // 1st half w. upper mid
         const ListNode *list2 = prev; // 2nd half
-        while (list2 != nullptr)
+        while (list2)
         {
             if (list1->val != list2->val)
             {

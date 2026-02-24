@@ -14,7 +14,7 @@ class Solution
     {
         int cnt = 0;
         auto v = static_cast<unsigned int>(n);
-        while (v != 0)
+        while (v)
         {
             v = v & (v - 1);
             cnt++;

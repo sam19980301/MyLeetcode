@@ -22,7 +22,7 @@ class Solution
         }
         int64_t n = x;
         int64_t rn = 0;
-        while (n != 0)
+        while (n)
         {
             auto [q, r] = div(n, divisior);
             rn = (rn * divisior) + r;
@@ -36,7 +36,7 @@ class Solution
             return false;
         }
         vector<int> vec;
-        while (x != 0)
+        while (x)
         {
             auto [q, r] = div(x, divisior);
             vec.push_back(static_cast<char>(r));

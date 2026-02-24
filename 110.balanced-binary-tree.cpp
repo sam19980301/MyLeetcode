@@ -30,7 +30,7 @@ class Solution
             return value = tree height (1-based), if tree is balanced
                            -1,                    otherwise
         */
-        if (root == nullptr)
+        if (!root)
         {
             return 0;
         }
@@ -57,7 +57,7 @@ class Solution
     int isBalanced_helper(TreeNode *root, bool &is_balanced)
     {
         // node height (0-based)
-        if (root == nullptr)
+        if (!root)
         {
             return -1;
         }

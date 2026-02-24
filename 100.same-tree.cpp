@@ -26,13 +26,11 @@ class Solution
   public:
     bool isSameTree(TreeNode *p, TreeNode *q)
     {
-        const bool p_valid = (p != nullptr);
-        const bool q_valid = (q != nullptr);
-        if (!p_valid && !q_valid)
+        if (!p && !q)
         {
             return true;
         }
-        if (p_valid != q_valid || p->val != q->val)
+        if (!p || !q || p->val != q->val)
         {
             return false;
         }

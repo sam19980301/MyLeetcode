@@ -27,7 +27,7 @@ class Solution
     {
         ListNode *slow = head; // NOLINT(misc-const-correctness)
         const ListNode *fast = head;
-        while (fast != nullptr && fast->next != nullptr)
+        while (fast && fast->next)
         {
             slow = slow->next;
             fast = fast->next->next;

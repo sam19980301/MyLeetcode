@@ -26,13 +26,11 @@ class Solution
   private:
     bool isSymmetric_helper(TreeNode *l_node, TreeNode *r_node)
     {
-        const bool l_valid = l_node != nullptr;
-        const bool r_valid = r_node != nullptr;
-        if (!l_valid && !r_valid)
+        if (!l_node && !r_node)
         {
             return true;
         }
-        if (l_valid != r_valid || l_node->val != r_node->val)
+        if (!l_node || !r_node || l_node->val != r_node->val)
         {
             return false;
         }

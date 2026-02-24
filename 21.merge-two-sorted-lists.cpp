@@ -27,7 +27,7 @@ class Solution
     {
         unique_ptr<ListNode> sentinel = make_unique<ListNode>(numeric_limits<int>::min());
         ListNode *curr = sentinel.get();
-        while (list1 != nullptr && list2 != nullptr)
+        while (list1 && list2)
         {
             if (list1->val <= list2->val)
             {
@@ -41,11 +41,11 @@ class Solution
             }
             curr = curr->next;
         }
-        if (list1 != nullptr)
+        if (list1)
         {
             curr->next = list1;
         }
-        if (list2 != nullptr)
+        if (list2)
         {
             curr->next = list2;
         }

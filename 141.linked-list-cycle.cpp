@@ -23,13 +23,13 @@ class Solution
   public:
     bool hasCycle(ListNode *head)
     {
-        if (head == nullptr)
+        if (!head)
         {
             return false;
         }
         const ListNode *slow = head;
         const ListNode *fast = head->next;
-        while (fast != nullptr && fast->next != nullptr && slow != fast)
+        while (fast && fast->next && slow != fast)
         {
             slow = slow->next;
             fast = fast->next->next;

@@ -15,7 +15,7 @@ class Solution
         auto it = nums.begin();
         for (const int num : nums)
         {
-            if (num != 0)
+            if (num)
             {
                 *it++ = num;
             }
@@ -28,7 +28,7 @@ class Solution
         for (size_t i = 0, zero_cnt = 0; i < nums.size(); i++)
         {
             const int val = nums.at(i);
-            if (val == 0)
+            if (!val)
             {
                 zero_cnt++;
             }
@@ -42,7 +42,7 @@ class Solution
         /*
         for (size_t i = 0, j = 0; j < nums.size(); j++)
         {
-            if (nums.at(j) != 0)
+            if (nums.at(j))
             {
                 swap(nums.at(i++), nums.at(j));
             }

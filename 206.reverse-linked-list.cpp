@@ -27,7 +27,7 @@ class Solution
     {
         ListNode *curr = head;
         ListNode *prev = nullptr;
-        while (curr != nullptr)
+        while (curr)
         {
             ListNode *next = curr->next;
             curr->next = prev;
