@@ -15,7 +15,6 @@ class Solution
   public:
     bool isPalindrome(int x)
     {
-        // TODO(sam): Review
         if (x < 0)
         {
             return false;
