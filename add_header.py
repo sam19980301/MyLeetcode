@@ -16,23 +16,33 @@ def add_header_batched(dir_path: str) -> None:
         with open(os.path.join(dir_path, file), "r") as f:
             content = f.readlines()
 
-        line_no: int = 0
+        target_line_no: int = -1
         add_include_header_statements: bool = False
         struct_str_list: list[str] = list()
         for line_no, line in enumerate(content):
-            if line.startswith(" * Definition for "):
-                struct_str_list.append(line_include_wildcard_header)
-                curr_struct_line_no = line_no + 1
-                finished_parsing_struct = False
-                while not finished_parsing_struct:
-                    if content[curr_struct_line_no] == " * };\n":
-                        finished_parsing_struct = True
-                    struct_str_list.append(content[curr_struct_line_no].lstrip(" *"))
-                    curr_struct_line_no += 1
+            for start_line_prefix, end_line in [
+                (" * Definition for ", " * };\n"),
+                ("// Definition for ", "};\n"),
+            ]:
+                if line.startswith(start_line_prefix):
+                    struct_str_list.append(line_include_wildcard_header)
+                    struct_str_list.append(line_using_std)
+                    curr_struct_line_no = line_no + 1
+                    finished_parsing_struct = False
+                    while not finished_parsing_struct:
+                        if content[curr_struct_line_no] == end_line:
+                            finished_parsing_struct = True
+                        struct_str_list.append(
+                            content[curr_struct_line_no].lstrip(" *")
+                        )
+                        curr_struct_line_no += 1
+                    break
             if line == line_using_std:
                 add_include_header_statements = True
             if line.startswith("class "):
-                break
+                target_line_no = line_no
+
+        assert target_line_no >= 0
 
         template_lines: list[str] = [
             line_include_wildcard_header,
@@ -50,7 +60,7 @@ def add_header_batched(dir_path: str) -> None:
         if not add_include_header_statements:
             print(f"add include headers statements for file {file}")
             for i, line in enumerate(template_lines):
-                content.insert(line_no + i, line)
+                content.insert(target_line_no + i, line)
 
         with open(os.path.join(dir_path, file), "w") as f:
             f.writelines(content)
