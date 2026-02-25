@@ -31,9 +31,8 @@ class Solution
             return nullptr;
         }
         auto mid = lo + (hi - lo) / 2;
-        // NOLINTBEGIN(cppcoreguidelines-owning-memory)
+        // NOLINTNEXTLINE(cppcoreguidelines-owning-memory)
         auto *node = new TreeNode(*mid, sortedArrayBST_helper(lo, mid - 1), sortedArrayBST_helper(mid + 1, hi));
-        // NOLINTEND(cppcoreguidelines-owning-memory)
         return node;
     }
 

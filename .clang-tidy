@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-altera-*,-boost-*,-llvmlibc-*,-bugprone-easily-swappable-parameters,-fuchsia-default-arguments-calls,-google-build-using-namespace,-misc-include-cleaner,-misc-no-recursion,-modernize-use-trailing-return-type,-performance-unnecessary-value-param,-readability-convert-member-functions-to-static,-readability-identifier-length,-readability-implicit-bool-conversion'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,*,-altera-*,-boost-*,-llvmlibc-*,-bugprone-easily-swappable-parameters,-cert-err58-cpp,-fuchsia-default-arguments-calls,-google-build-using-namespace,-misc-include-cleaner,-misc-no-recursion,-modernize-use-trailing-return-type,-performance-unnecessary-value-param,-readability-convert-member-functions-to-static,-readability-identifier-length,-readability-implicit-bool-conversion'
 WarningsAsErrors: '*'
 HeaderFileExtensions:
   - ''

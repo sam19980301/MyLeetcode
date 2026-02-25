@@ -18,7 +18,6 @@ class Solution
   public:
     vector<vector<int>> updateMatrix(vector<vector<int>> &mat)
     {
-        // TODO(sam): Review
         auto m = mat.size();
         auto n = mat.front().size();
         Matrix<int> ans(m, Array<int>(n, numeric_limits<int>::max()));
