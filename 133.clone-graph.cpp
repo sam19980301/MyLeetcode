@@ -36,7 +36,6 @@ class Solution
   private:
     Node *cloneGraph_helper(Node *node, unordered_map<Node *, Node *> &m)
     {
-        // TODO(sam): Review
         auto [it, success] = m.insert({node, nullptr});
         if (success)
         {

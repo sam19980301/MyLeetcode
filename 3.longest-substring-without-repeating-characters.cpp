@@ -15,7 +15,6 @@ class Solution
   public:
     int lengthOfLongestSubstring(string s)
     {
-        // TODO(sam): Review
         int ans = 0;
         array<bool, arr_size> repeat{};
         auto l_it = s.begin();

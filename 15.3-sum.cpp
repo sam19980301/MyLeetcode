@@ -12,7 +12,6 @@ class Solution
   public:
     vector<vector<int>> threeSum(vector<int> &nums)
     {
-        // TODO(sam): Review
         ranges::sort(nums, less<>{});
 
         vector<vector<int>> ans;
