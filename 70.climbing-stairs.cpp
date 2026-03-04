@@ -26,7 +26,7 @@ class Solution
 {
     /*
       private:
-        constexpr static Arr arr = climbStairs_helper();
+        static constexpr Arr arr = climbStairs_helper();
     */
   public:
     int climbStairs(int n)

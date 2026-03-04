@@ -10,7 +10,7 @@ using namespace std;
 class Solution
 {
   private:
-    constexpr static int64_t divisior = 10;
+    static constexpr int64_t divisior = 10;
 
   public:
     bool isPalindrome(int x)

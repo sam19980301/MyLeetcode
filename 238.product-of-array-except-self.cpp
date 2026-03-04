@@ -12,7 +12,6 @@ class Solution
   public:
     vector<int> productExceptSelf(vector<int> &nums)
     {
-        // TODO(sam): Review
         vector<int> ans(nums.size(), 1);
         auto l_it = ans.begin();
         int l_prod = 1;

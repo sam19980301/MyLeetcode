@@ -10,7 +10,7 @@ using namespace std;
 class Trie
 {
   private:
-    constexpr static size_t arr_size = 'z' - 'a' + 1;
+    static constexpr size_t arr_size = 'z' - 'a' + 1;
     struct TrieNode
     {
         bool valid = false;

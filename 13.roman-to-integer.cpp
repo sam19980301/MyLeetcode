@@ -7,7 +7,7 @@
 // @lc code=start
 #include <bits/stdc++.h>
 using namespace std;
-constexpr static size_t arr_size = 128;
+static constexpr size_t arr_size = 128;
 using Arr = array<int, arr_size>;
 consteval Arr romanToInt_helper()
 {
@@ -26,7 +26,7 @@ consteval Arr romanToInt_helper()
 class Solution
 {
   private:
-    constexpr static Arr arr = romanToInt_helper();
+    static constexpr Arr arr = romanToInt_helper();
 
   public:
     int romanToInt(string s)

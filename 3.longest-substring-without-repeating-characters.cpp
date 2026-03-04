@@ -10,7 +10,7 @@ using namespace std;
 class Solution
 {
   private:
-    constexpr static size_t arr_size = 128;
+    static constexpr size_t arr_size = 128;
 
   public:
     int lengthOfLongestSubstring(string s)
