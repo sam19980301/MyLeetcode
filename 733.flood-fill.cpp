@@ -14,9 +14,9 @@ class Solution
                                                    make_pair(-1, 0)};
     void floodFill_helper(vector<vector<int>> &image, int sr, int sc, int from_color, int to_color)
     {
-        const size_t m = image.size();
-        const size_t n = image.front().size();
-        if (sr < 0 || cmp_greater_equal(sr, m) || sc < 0 || cmp_greater_equal(sc, n))
+        const int m = static_cast<int>(image.size());
+        const int n = static_cast<int>(image.front().size());
+        if (sr < 0 || sr >= m || sc < 0 || sc >= n)
         {
             return;
         }

@@ -14,9 +14,9 @@ class Solution
                                                    make_pair(-1, 0)};
     void numIslands_helper(int r, int c, vector<vector<char>> &grid)
     {
-        auto m = grid.size();
-        auto n = grid.front().size();
-        if (r < 0 || cmp_greater_equal(r, m) || c < 0 || cmp_greater_equal(c, n))
+        const int m = static_cast<int>(grid.size());
+        const int n = static_cast<int>(grid.front().size());
+        if (r < 0 || r >= m || c < 0 || c >= n)
         {
             return;
         }
@@ -37,19 +37,19 @@ class Solution
   public:
     int numIslands(vector<vector<char>> &grid)
     {
-        auto m = grid.size();
-        auto n = grid.front().size();
+        const int m = static_cast<int>(grid.size());
+        const int n = static_cast<int>(grid.front().size());
         int ans = 0;
-        for (size_t i = 0; i < m; i++)
+        for (int i = 0; i < m; i++)
         {
-            for (size_t j = 0; j < n; j++)
+            for (int j = 0; j < n; j++)
             {
                 auto &ch = grid.at(i).at(j);
                 if (ch == '1')
                 {
                     ans++;
                 }
-                numIslands_helper(static_cast<int>(i), static_cast<int>(j), grid);
+                numIslands_helper(i, j, grid);
             }
         }
         return ans;

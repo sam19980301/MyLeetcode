@@ -18,14 +18,14 @@ class Solution
   public:
     vector<vector<int>> updateMatrix(vector<vector<int>> &mat)
     {
-        auto m = mat.size();
-        auto n = mat.front().size();
+        const int m = static_cast<int>(mat.size());
+        const int n = static_cast<int>(mat.front().size());
         Matrix<int> ans(m, Array<int>(n, numeric_limits<int>::max()));
 
         queue<pair<int, int>> q; // coordinate
-        for (size_t i = 0; i < m; i++)
+        for (int i = 0; i < m; i++)
         {
-            for (size_t j = 0; j < n; j++)
+            for (int j = 0; j < n; j++)
             {
                 if (!mat.at(i).at(j))
                 {
@@ -44,7 +44,7 @@ class Solution
             {
                 const int r = i + dr;
                 const int c = j + dc;
-                if (r < 0 || cmp_greater_equal(r, m) || c < 0 || cmp_greater_equal(c, n))
+                if (r < 0 || r >= m || c < 0 || c >= n)
                 {
                     continue;
                 }

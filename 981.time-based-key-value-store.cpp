@@ -13,7 +13,6 @@ class TimeMap
     unordered_map<string, map<int, string>> m;
 
   public:
-    // TODO(sam): Review
     TimeMap() = default;
 
     void set(string key, string value, int timestamp)

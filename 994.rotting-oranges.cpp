@@ -21,12 +21,12 @@ class Solution
     {
         int fresh_cnt = 0;
 
-        const size_t m = grid.size();
-        const size_t n = grid.front().size();
+        const int m = static_cast<int>(grid.size());
+        const int n = static_cast<int>(grid.front().size());
         queue<pair<int, int>> q; // coordinate
-        for (size_t i = 0; i < m; i++)
+        for (int i = 0; i < m; i++)
         {
-            for (size_t j = 0; j < n; j++)
+            for (int j = 0; j < n; j++)
             {
                 const int &val = grid.at(i).at(j);
                 if (val == kFresh)
