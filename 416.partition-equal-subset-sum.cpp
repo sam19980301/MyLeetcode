@@ -12,8 +12,7 @@ class Solution
   public:
     bool canPartition(vector<int> &nums)
     {
-        // TODO(sam): Review
-        ranges::sort(nums.begin(), nums.end(), less<>{});
+        ranges::sort(nums.begin(), nums.end(), less<>());
         const int sum = accumulate(nums.begin(), nums.end(), 0);
         if (sum % 2)
         {

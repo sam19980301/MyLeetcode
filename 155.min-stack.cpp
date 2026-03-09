@@ -10,14 +10,11 @@ using namespace std;
 class MinStack
 {
   private:
-    stack<int> ms;
+    stack<int> ms{{numeric_limits<int32_t>::max()}};
     stack<int> s;
 
   public:
-    MinStack()
-    {
-        ms.push(numeric_limits<int32_t>::max());
-    }
+    MinStack() = default;
 
     void push(int val)
     {

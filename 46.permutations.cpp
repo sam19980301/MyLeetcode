@@ -34,10 +34,10 @@ class Solution
         return ans;
 
         /*
-        ranges::sort(nums, less<>{});
+        ranges::sort(nums, less<>());
         vector<vector<int>> ans;
         ans.push_back(nums);
-        while (ranges::next_permutation(nums, less<>{}).found)
+        while (ranges::next_permutation(nums, less<>()).found)
         {
             ans.push_back(nums);
         }

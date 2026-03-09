@@ -21,7 +21,6 @@ class Solution
   public:
     vector<int> spiralOrder(vector<vector<int>> &matrix)
     {
-        // TODO(sam): Review
         vector<int> ans;
         int st_row = 0;
         int ed_row = static_cast<int>(matrix.size()) - 1;

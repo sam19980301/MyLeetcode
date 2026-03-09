@@ -18,7 +18,7 @@ class Solution
         using Time = int64_t;
         using ActiveMeeting = pair<Time, int>; // end time, room id
 
-        ranges::sort(meetings, less<>{});
+        ranges::sort(meetings, less<>());
         MinHeap<ActiveMeeting> active_meetings;
         vector<int> rooms(n);
         iota(rooms.begin(), rooms.end(), 0);
@@ -53,7 +53,7 @@ class Solution
             available_rooms.pop();
             cnts.at(room_id)++;
         }
-        return static_cast<int>(distance(cnts.begin(), ranges::max_element(cnts, less<>{})));
+        return static_cast<int>(distance(cnts.begin(), ranges::max_element(cnts, less<>())));
     }
 };
 // @lc code=end

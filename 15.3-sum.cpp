@@ -12,7 +12,7 @@ class Solution
   public:
     vector<vector<int>> threeSum(vector<int> &nums)
     {
-        ranges::sort(nums, less<>{});
+        ranges::sort(nums, less<>());
 
         vector<vector<int>> ans;
         auto it = nums.begin();

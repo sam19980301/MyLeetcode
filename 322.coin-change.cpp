@@ -12,7 +12,7 @@ class Solution
   public:
     int coinChange(vector<int> &coins, int amount)
     {
-        ranges::sort(coins, less<>{});
+        ranges::sort(coins, less<>());
 
         vector<int> cnts(amount + 1, numeric_limits<int>::max());
         cnts.at(0) = 0;

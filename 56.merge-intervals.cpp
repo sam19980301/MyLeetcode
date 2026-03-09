@@ -12,7 +12,7 @@ class Solution
   public:
     vector<vector<int>> merge(vector<vector<int>> &intervals)
     {
-        ranges::sort(intervals, less<>{});
+        ranges::sort(intervals, less<>());
         vector<vector<int>> ans;
         ans.push_back(intervals.front());
         for (auto &interval : intervals)

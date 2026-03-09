@@ -38,7 +38,7 @@ class Solution
     vector<vector<int>> combinationSum(vector<int> &candidates, int target)
     {
         // Backtracking
-        ranges::sort(candidates, less<>{});
+        ranges::sort(candidates, less<>());
         vector<vector<int>> ans;
         vector<int> curr_comb;
         combinationSum_helper(0, target, curr_comb, ans, candidates);
@@ -46,7 +46,7 @@ class Solution
 
         /*
         // DP
-        ranges::sort(candidates, less<>{});
+        ranges::sort(candidates, less<>());
         vector<vector<vector<int>>> dp(target + 1);
         dp.front().emplace_back();
         for (int curr_target = 1; curr_target <= target; curr_target++)
