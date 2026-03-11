@@ -12,7 +12,6 @@ class Solution
   public:
     int maxProduct(vector<int> &nums)
     {
-        // TODO(sam): Review
         /*
             assuming subarray answer is (start, end)
             1. start is 0,        end is 0

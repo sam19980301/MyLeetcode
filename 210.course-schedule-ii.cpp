@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=207 lang=cpp
+ * @lc app=leetcode id=210 lang=cpp
  *
- * [207] Course Schedule
+ * [210] Course Schedule II
  */
 
 // @lc code=start
@@ -17,7 +17,7 @@ class Solution
         kVisiting,
         kVisited
     };
-    bool canFinished_helper(int node, vector<State> &node_states, Graph &graph)
+    bool findOrder_helper(int node, vector<State> &node_states, Graph &graph, vector<int> &ans)
     {
         auto &state = node_states.at(node);
         if (state == State::kVisiting)
@@ -32,42 +32,37 @@ class Solution
         state = State::kVisiting;
         for (const int neighbor : graph.at(node))
         {
-            if (!canFinished_helper(neighbor, node_states, graph))
+            if (!findOrder_helper(neighbor, node_states, graph, ans))
             {
                 return false;
             }
         }
+        ans.push_back(node);
         state = State::kVisited;
         return true;
     }
 
   public:
-    bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
+    vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites)
     {
-        // topological sorting
-
-        // DFS
-        // build graph
         Graph graph(numCourses);
         for (auto &prerequisite : prerequisites)
         {
             graph.at(prerequisite.front()).push_back(prerequisite.back());
         }
 
-        // check if there's any cycle
         vector<State> node_states(numCourses, State::kUnvisited);
+        vector<int> ans;
         for (int node = 0; node < numCourses; node++)
         {
-            if (!canFinished_helper(node, node_states, graph))
+            if (!findOrder_helper(node, node_states, graph, ans))
             {
-                return false;
+                return {};
             }
         }
-        return true;
+        return ans;
 
         /*
-        // Kahn's algo. (BFS)
-        // build graph
         using Graph = vector<pair<int, vector<int>>>; // indegree, neighbors
         Graph graph(numCourses);
         for (auto &prerequisite : prerequisites)
@@ -76,31 +71,36 @@ class Solution
             graph.at(prerequisite.front()).first++;
         }
 
-        int visited_node = 0;
-        queue<int> q;
+        vector<int> ans;
+        ans.reserve(numCourses);
         for (int i = 0; i < numCourses; i++)
         {
             if (!graph.at(i).first)
             {
-                q.push(i);
-                visited_node++;
+                ans.push_back(i);
             }
         }
 
-        while (!q.empty())
+        auto it = ans.begin();
+        while (it != ans.end())
         {
-            for (const int neighbor : graph.at(q.front()).second)
+            for (const int neighbor : graph.at(*it).second)
             {
                 int &indegree = graph.at(neighbor).first;
                 if (!--indegree)
                 {
-                    q.push(neighbor);
-                    visited_node++;
+                    // Notes: must reserve first in case iterator being invalid after reallocation!
+                    ans.push_back(neighbor);
                 }
             }
-            q.pop();
+            it++;
         }
-        return visited_node == numCourses;
+
+        if (cmp_not_equal(ans.size(), numCourses))
+        {
+            return {};
+        }
+        return ans;
         */
     }
 };
