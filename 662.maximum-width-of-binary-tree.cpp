@@ -26,7 +26,6 @@ class Solution
   public:
     int widthOfBinaryTree(TreeNode *root)
     {
-        // TODO(sam): Review
         queue<pair<TreeNode *, int64_t>> q;
         q.emplace(root, 0);
 

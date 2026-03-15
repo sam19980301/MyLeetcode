@@ -13,21 +13,38 @@ class Solution
     vector<int> dailyTemperatures(vector<int> &temperatures)
     {
         vector<int> ans(temperatures.size(), 0);
-        stack<vector<int>::reverse_iterator> s;
-        for (auto temp_it = temperatures.rbegin(), ans_it = ans.rbegin(); temp_it != temperatures.rend();
-             temp_it++, ans_it++)
+        stack<int> s;
+
+        const int sz = static_cast<int>(temperatures.size());
+        for (int i = 0; i < sz; i++)
         {
-            while (!s.empty() && *temp_it >= *s.top())
+            while (!s.empty() && temperatures.at(i) > temperatures.at(s.top()))
+            {
+                ans.at(s.top()) = i - s.top();
+                s.pop();
+            }
+            s.push(i);
+        }
+        return ans;
+
+        /*
+        vector<int> ans(temperatures.size(), 0);
+        stack<vector<int>::reverse_iterator> s;
+        for (auto curr_it = temperatures.rbegin(), ans_it = ans.rbegin(); curr_it != temperatures.rend();
+             curr_it++, ans_it++)
+        {
+            while (!s.empty() && *curr_it >= *s.top())
             {
                 s.pop();
             }
-            if (!s.empty() && *temp_it < *s.top())
+            if (!s.empty() && *curr_it < *s.top())
             {
-                *ans_it = static_cast<int>(distance(s.top(), temp_it));
+                *ans_it = static_cast<int>(distance(s.top(), curr_it));
             }
-            s.push(temp_it);
+            s.push(curr_it);
         }
         return ans;
+        */
     }
 };
 // @lc code=end

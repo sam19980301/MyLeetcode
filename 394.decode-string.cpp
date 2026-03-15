@@ -30,7 +30,7 @@ class Solution
                 while (isdigit(*it))
                 {
                     // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
-                    n = (10 * n) + *it++ - '0';
+                    n = (10 * n) + (*it++ - '0');
                 }
 
                 it++; // *it == [
@@ -49,7 +49,6 @@ class Solution
   public:
     string decodeString(string s)
     {
-        // TODO(sam): Review
         auto it = s.begin();
         return decodeString_helper(it, s.end());
 

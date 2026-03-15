@@ -12,6 +12,18 @@ class Solution
   public:
     vector<vector<int>> kClosest(vector<vector<int>> &points, int k)
     {
+        // Follow up: solve it using partition
+        auto euclidean_dist_less = [](const vector<int> &lhs, const vector<int> &rhs) -> bool {
+            const int l0 = lhs.at(0);
+            const int l1 = lhs.at(1);
+            const int r0 = rhs.at(0);
+            const int r1 = rhs.at(1);
+            return (l0 * l0) + (l1 * l1) < (r0 * r0) + (r1 * r1);
+        };
+        ranges::nth_element(points, points.begin() + k, euclidean_dist_less);
+        return {points.begin(), points.begin() + k};
+
+        /*
         auto euclidean_dist_less = [](const vector<int> &lhs, const vector<int> &rhs) -> bool {
             const int l0 = lhs.at(0);
             const int l1 = lhs.at(1);
@@ -34,6 +46,7 @@ class Solution
             it++;
         }
         return ans;
+        */
     }
 };
 // @lc code=end

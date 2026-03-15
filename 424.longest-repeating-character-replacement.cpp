@@ -15,7 +15,6 @@ class Solution
   public:
     int characterReplacement(string s, int k)
     {
-        // TODO(sam): Review
         int ans = 0;
         array<int, arr_size> cnts{};
         int max_cnt = 0;

@@ -12,12 +12,10 @@ class Solution
   public:
     int longestConsecutive(vector<int> &nums)
     {
-        // TODO(sam): Review
         const unordered_set<int> s(nums.begin(), nums.end());
         int lcs_len = 0;
         for (const int num : s)
         {
-
             if (s.contains(num - 1))
             {
                 continue;

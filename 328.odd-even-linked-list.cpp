@@ -25,14 +25,12 @@ class Solution
   public:
     ListNode *oddEvenList(ListNode *head)
     {
-        // TODO(sam): Review
         if (!head)
         {
             return head;
         }
         ListNode *e_head = head->next;
         ListNode *o_node = head;
-        ;
         ListNode *e_node = e_head;
         while (e_node && e_node->next)
         {

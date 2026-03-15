@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=658 lang=cpp
+ * @lc app=leetcode id=153 lang=cpp
  *
- * [658] Find K Closest Elements
+ * [153] Find Minimum in Rotated Sorted Array
  */
 
 // @lc code=start
@@ -10,14 +10,14 @@ using namespace std;
 class Solution
 {
   public:
-    vector<int> findClosestElements(vector<int> &arr, int k, int x)
+    int findMin(vector<int> &nums)
     {
-        auto l_it = arr.begin(); // starting iterator for the ans
-        auto r_it = arr.end() - k;
+        auto l_it = nums.begin();
+        auto r_it = nums.end() - 1;
         while (l_it < r_it)
         {
             auto m_it = l_it + distance(l_it, r_it) / 2;
-            if (x - *m_it > *(m_it + k) - x)
+            if (*m_it > *r_it)
             {
                 l_it = m_it + 1;
             }
@@ -26,7 +26,7 @@ class Solution
                 r_it = m_it;
             }
         }
-        return {l_it, l_it + k};
+        return *l_it;
     }
 };
 // @lc code=end

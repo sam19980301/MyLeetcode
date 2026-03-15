@@ -12,7 +12,8 @@ class Solution
   public:
     void sortColors(vector<int> &nums)
     {
-        // [being, it_01): 0
+        // TODO(sam): Review
+        // [begin, it_01): 0
         // [it_01, it_lo): 1
         // [it_lo, it_hi]: unordered
         // (it_hi, end): 2

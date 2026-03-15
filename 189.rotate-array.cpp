@@ -12,7 +12,6 @@ class Solution
   public:
     void rotate(vector<int> &nums, int k)
     {
-        // TODO(sam): Review
         const int step = k % static_cast<int>(nums.size());
         ranges::reverse(nums.rbegin(), nums.rbegin() + step);
         ranges::reverse(nums.rbegin() + step, nums.rend());

@@ -36,7 +36,6 @@ class Solution
   public:
     vector<string> generateParenthesis(int n)
     {
-        // TODO(sam): Review
         vector<string> ans;
         string curr;
         generateParenthesis_helper(n, n, curr, ans);
