@@ -12,15 +12,14 @@ class Solution
   public:
     void sortColors(vector<int> &nums)
     {
-        // TODO(sam): Review
         // [begin, it_01): 0
         // [it_01, it_lo): 1
-        // [it_lo, it_hi]: unordered
-        // (it_hi, end): 2
+        // [it_lo, it_hi): unordered
+        // [it_hi, end):   2
         auto it_01 = nums.begin();
         auto it_lo = nums.begin();
-        auto it_hi = nums.end() - 1;
-        while (it_lo <= it_hi)
+        auto it_hi = nums.end();
+        while (it_lo < it_hi)
         {
             if (*it_lo == 0)
             {
@@ -28,11 +27,11 @@ class Solution
             }
             else if (*it_lo == 1)
             {
-                *it_lo++;
+                it_lo++;
             }
             else // *it_lo == 2
             {
-                swap(*it_lo, *it_hi--);
+                swap(*it_lo, *--it_hi);
             }
         }
     }

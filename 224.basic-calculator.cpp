@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=227 lang=cpp
+ * @lc app=leetcode id=224 lang=cpp
  *
- * [227] Basic Calculator II
+ * [224] Basic Calculator
  */
 
 // @lc code=start
@@ -12,10 +12,17 @@ class Solution
   public:
     int calculate(string s) // NOLINT(readability-function-cognitive-complexity)
     {
+        // TODO(sam): Review
         // build Reverse Polish Notation (RPN)
         auto isop = [](const char ch) { return ch == '+' || ch == '-' || ch == '*' || ch == '/'; };
 
+        auto is_unary = [](const char ch) { return ch == '-'; };
+
         auto priority = [](const char op) {
+            if (op < 0) // unary operator
+            {
+                return 3;
+            }
             if (op == '+' || op == '-')
             {
                 return 1;
@@ -27,7 +34,13 @@ class Solution
             return -1;
         };
 
-        auto process_op = [](stack<int> &s, const char op) {
+        auto process_op = [](stack<int64_t> &s, const char op) {
+            if (op < 0) // unary operator
+            {
+                s.top() = -s.top();
+                return;
+            }
+
             auto rhs = s.top();
             s.pop();
             auto lhs = s.top();
@@ -50,25 +63,46 @@ class Solution
             }
         };
 
-        stack<int> s_num;
-        stack<char> s_op;
+        bool may_be_unary = true;
+        stack<int64_t> s_num;
+        stack<signed char> s_op;
         for (auto it = s.begin(); it != s.end(); it++)
         {
             if (isspace(*it))
             {
             }
+            else if (*it == '(')
+            {
+                s_op.push(*it);
+                may_be_unary = true;
+            }
+            else if (*it == ')')
+            {
+                while (s_op.top() != '(')
+                {
+                    process_op(s_num, s_op.top());
+                    s_op.pop();
+                }
+                s_op.pop();
+                may_be_unary = false;
+            }
             else if (isop(*it))
             {
-                while (!s_op.empty() && priority(s_op.top()) >= priority(*it)) // left associativity
+                if (may_be_unary && is_unary(*it))
+                {
+                    *it = static_cast<signed char>(-*it);
+                }
+                while (!s_op.empty() && priority(s_op.top()) >= priority(*it))
                 {
                     process_op(s_num, s_op.top());
                     s_op.pop();
                 }
                 s_op.push(*it);
+                may_be_unary = true;
             }
             else // isdigit(*it)
             {
-                int n = 0;
+                int64_t n = 0;
                 while (it != s.end() && isdigit(*it))
                 {
                     // NOLINTNEXTLINE(cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers)
@@ -76,6 +110,7 @@ class Solution
                 }
                 it--;
                 s_num.push(n);
+                may_be_unary = false;
             }
         }
 
@@ -84,7 +119,7 @@ class Solution
             process_op(s_num, s_op.top());
             s_op.pop();
         }
-        return s_num.top();
+        return static_cast<int>(s_num.top());
     }
 };
 // @lc code=end

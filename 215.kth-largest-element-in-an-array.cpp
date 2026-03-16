@@ -13,6 +13,50 @@ class Solution
     int findKthLargest_helper(vector<int>::iterator st_it, vector<int>::iterator ed_it, int k)
     {
         // parition (similar to 75.sort-colors)
+        // [st_it, gt_it): > pivot
+        // [gt_it, eq_it): = pivot
+        // [eq_it, lt_it):
+        // [lt_it, ed_it): < pivot
+
+        const int pivot = *st_it;
+        auto gt_it = st_it;
+        auto eq_it = st_it + 1;
+        auto lt_it = ed_it;
+        while (eq_it < lt_it)
+        {
+            const int value = *eq_it;
+            if (value > pivot)
+            {
+                swap(*gt_it++, *eq_it++);
+            }
+            else if (value == pivot)
+            {
+                eq_it++;
+            }
+            else // value < pivot
+            {
+                swap(*eq_it, *--lt_it);
+            }
+        }
+
+        auto gt_len = static_cast<int>(distance(st_it, gt_it));
+        if (gt_len >= k)
+        {
+            return findKthLargest_helper(st_it, gt_it, k);
+        }
+        k -= gt_len;
+
+        auto eq_len = static_cast<int>(distance(gt_it, eq_it));
+        if (eq_len >= k)
+        {
+            return pivot;
+        }
+        k -= eq_len;
+
+        // auto lt_len = static_cast<int>(distance(lt_it, ed_it));
+        return findKthLargest_helper(lt_it, ed_it, k);
+
+        /*
         const int pivot = *st_it;
 
         // [   st_it, ge_ed_it): >= pivot (last value is pivot)
@@ -39,12 +83,12 @@ class Solution
             return findKthLargest_helper(ge_ed_it, ed_it, k - eq_len);
         }
         return pivot;
+        */
     }
 
   public:
     int findKthLargest(vector<int> &nums, int k)
     {
-        // TODO(sam): Review
         return findKthLargest_helper(nums.begin(), nums.end(), k);
 
         /*
