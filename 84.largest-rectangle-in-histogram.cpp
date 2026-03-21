@@ -12,7 +12,6 @@ class Solution
   public:
     int largestRectangleArea(vector<int> &heights)
     {
-        // TODO(sam): Reivew
         int ans = 0;
         stack<vector<int>::iterator> s;
         for (auto it = heights.begin(); it != heights.end(); it++)

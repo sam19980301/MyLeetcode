@@ -27,6 +27,14 @@ class Solution
     void findWords_helper(TrieNode *node, int r, int c, vector<vector<char>> &board, string &curr_str,
                           vector<string> &ans)
     {
+        const int m = static_cast<int>(board.size());
+        const int n = static_cast<int>(board.front().size());
+
+        if (r < 0 || r >= m || c < 0 || c >= n)
+        {
+            return;
+        }
+
         char &ch = board.at(r).at(c);
         if (ch == kVisited)
         {
@@ -39,9 +47,6 @@ class Solution
             return;
         }
 
-        const int m = static_cast<int>(board.size());
-        const int n = static_cast<int>(board.front().size());
-
         curr_str.push_back(ch);
         ch = kVisited;
         if (node->valid)
@@ -49,17 +54,9 @@ class Solution
             node->valid = false;
             ans.push_back(curr_str);
         }
-
         for (auto [dr, dc] : dirs)
         {
-            const int nr = r + dr;
-            const int nc = c + dc;
-            if (nr < 0 || nr >= m || nc < 0 || nc >= n)
-            {
-                continue;
-            }
-
-            findWords_helper(node, nr, nc, board, curr_str, ans);
+            findWords_helper(node, r + dr, c + dc, board, curr_str, ans);
         }
         ch = curr_str.back();
         curr_str.pop_back();
@@ -68,7 +65,6 @@ class Solution
   public:
     vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
     {
-        // TODO(sam): Review
         for (const string &word : words)
         {
             TrieNode *node = &root;

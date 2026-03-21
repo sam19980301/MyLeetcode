@@ -12,7 +12,6 @@ class Solution
   public:
     int calculate(string s) // NOLINT(readability-function-cognitive-complexity)
     {
-        // TODO(sam): Review
         // build Reverse Polish Notation (RPN)
         auto isop = [](const char ch) { return ch == '+' || ch == '-' || ch == '*' || ch == '/'; };
 

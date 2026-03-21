@@ -12,7 +12,6 @@ class Solution
   public:
     int longestValidParentheses(string s)
     {
-        // TODO(sam): Review
         int ans = 0;
         stack<int> st; // invalid indice,: either unused '(', or invalid ')'
         const int sz = static_cast<int>(s.size());

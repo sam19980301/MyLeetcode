@@ -12,7 +12,6 @@ class Solution
   public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
     {
-        // TODO(sam): Review
         deque<vector<int>::iterator> q;
         vector<int> ans;
         ans.reserve(nums.size() - k + 1);

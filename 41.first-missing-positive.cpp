@@ -12,7 +12,6 @@ class Solution
   public:
     int firstMissingPositive(vector<int> &nums)
     {
-        // TODO(sam): Review
         const int sz = static_cast<int>(nums.size());
         for (int i = 0; i < sz; i++)
         {

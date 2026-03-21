@@ -25,7 +25,6 @@ class Solution
   public:
     ListNode *mergeKLists(vector<ListNode *> &lists)
     {
-        // TODO(sam): Review
         auto greater_listnode = [](const ListNode *lhs, const ListNode *rhs) {
             if (!lhs)
             {

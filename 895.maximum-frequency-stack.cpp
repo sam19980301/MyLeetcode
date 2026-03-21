@@ -22,7 +22,6 @@ class FreqStack
     */
 
   public:
-    // TODO(sam): Review
     FreqStack() = default;
 
     void push(int val)

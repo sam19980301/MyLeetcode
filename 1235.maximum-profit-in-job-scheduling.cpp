@@ -12,7 +12,6 @@ class Solution
   public:
     int jobScheduling(vector<int> &startTime, vector<int> &endTime, vector<int> &profit)
     {
-        // TODO(sam): Review
         using Job = tuple<int, int, int>; // ed, st, profit
         const size_t sz = startTime.size();
         vector<Job> jobs;
