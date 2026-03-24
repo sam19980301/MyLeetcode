@@ -12,7 +12,6 @@ class Solution
   public:
     int maxProfit(vector<int> &prices)
     {
-        // TODO(sam): Solve it in DP approach
         int profit = 0;
         int buy_price = numeric_limits<int>::max();
         for (const int price : prices)

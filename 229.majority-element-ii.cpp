@@ -12,18 +12,22 @@ class Solution
   public:
     vector<int> majorityElement(vector<int> &nums)
     {
-        // TODO(sam): Review
         if (nums.size() == 1)
         {
             return nums;
         }
         if (nums.size() == 3)
         {
-            ranges::sort(nums, less<>());
-            const int num = nums.at(1);
-            if (num == nums.front() || num == nums.back())
+            const int num_0 = nums.at(0);
+            const int num_1 = nums.at(1);
+            const int num_2 = nums.at(2);
+            if (num_0 == num_1 || num_0 == num_2)
             {
-                return {num};
+                return {num_0};
+            }
+            if (num_1 == num_2)
+            {
+                return {num_1};
             }
             return {};
         }

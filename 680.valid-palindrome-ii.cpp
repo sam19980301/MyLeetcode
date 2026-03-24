@@ -12,8 +12,7 @@ class Solution
   public:
     bool validPalindrome(string s)
     {
-        // TODO(sam): Review
-        auto is_pure_palindrome = [](string::iterator st_it, string::iterator ed_it) {
+        auto is_palindrome = [](string::iterator st_it, string::iterator ed_it) {
             while (st_it < ed_it)
             {
                 if (*st_it++ != *ed_it--)
@@ -33,7 +32,7 @@ class Solution
                 st_it++;
                 ed_it--;
             }
-            else if (is_pure_palindrome(st_it + 1, ed_it) || is_pure_palindrome(st_it, ed_it - 1))
+            else if (is_palindrome(st_it + 1, ed_it) || is_palindrome(st_it, ed_it - 1))
             {
                 return true;
             }

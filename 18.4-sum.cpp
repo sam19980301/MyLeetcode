@@ -12,7 +12,6 @@ class Solution
   public:
     vector<vector<int>> fourSum(vector<int> &nums, int target)
     {
-        // TODO(sam): Review
         if (nums.size() < 4)
         {
             return {};

@@ -13,7 +13,6 @@ class MyStack
     queue<int> q;
 
   public:
-    // TODO(sam): Review
     MyStack() = default;
 
     void push(int x)
@@ -37,7 +36,7 @@ class MyStack
     int top()
     {
         const int x = pop();
-        q.push(x);
+        push(x);
         return x;
     }
 

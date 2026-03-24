@@ -39,7 +39,7 @@ class Solution
         while (r_it != s.end())
         {
             cnts.at(*r_it++ - 'A')++;
-            while (*ranges::max_element(cnts, less<>()) + k < distance(l_it, r_it))
+            while (ranges::max(cnts, less<>()) + k < distance(l_it, r_it))
             {
                 cnts.at(*l_it++ - 'A')--;
             }

@@ -17,7 +17,7 @@ class Solution
         auto r_it = nums.end() - 1;
         while (l_it < r_it)
         {
-            auto m_it = l_it + (r_it - l_it) / 2;
+            auto m_it = l_it + distance(l_it, r_it) / 2;
             if (*m_it > *r_it)
             {
                 l_it = m_it + 1;

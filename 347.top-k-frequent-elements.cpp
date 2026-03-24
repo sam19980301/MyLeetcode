@@ -12,7 +12,6 @@ class Solution
   public:
     vector<int> topKFrequent(vector<int> &nums, int k)
     {
-        // TODO(sam): Review
         unordered_map<int, int> m; // num : freq
         for (const int num : nums)
         {

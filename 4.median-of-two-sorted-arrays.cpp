@@ -12,30 +12,30 @@ class Solution
   public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
     {
-        // TODO(sam): Review twice!
+        // TODO(sam): Review
         if (nums1.size() > nums2.size())
         {
             return findMedianSortedArrays(nums2, nums1);
         }
 
-        const int s1 = static_cast<int>(nums1.size());
-        const int s2 = static_cast<int>(nums2.size());
-        const int sz = s1 + s2;
+        const size_t s1 = static_cast<int>(nums1.size());
+        const size_t s2 = static_cast<int>(nums2.size());
+        const size_t sz = s1 + s2;
 
         // always binary search on nums1: [0, target) is at the left partition
-        int lo = 0;
-        int hi = static_cast<int>(nums1.size());
+        size_t lo = 0;
+        size_t hi = nums1.size();
         while (lo <= hi)
         {
             // nums1: [0, mid1) / [mid1, nums1.size())
             // nums2: [0, mid2) / [mid2, nums2.size())
             // mid1 + mid2 = (sz + 1) / 2
-            const int mid1 = lo + ((hi - lo) / 2);
-            const int mid2 = ((sz + 1) / 2) - mid1;
+            const size_t mid1 = lo + ((hi - lo) / 2);
+            const size_t mid2 = ((sz + 1) / 2) - mid1;
 
             const int l1 = (mid1 >= 1) ? nums1.at(mid1 - 1) : numeric_limits<int>::min();
-            const int r1 = (mid1 < s1) ? nums1.at(mid1) : numeric_limits<int>::max();
             const int l2 = (mid2 >= 1) ? nums2.at(mid2 - 1) : numeric_limits<int>::min();
+            const int r1 = (mid1 < s1) ? nums1.at(mid1) : numeric_limits<int>::max();
             const int r2 = (mid2 < s2) ? nums2.at(mid2) : numeric_limits<int>::max();
 
             if (l1 > r2)
