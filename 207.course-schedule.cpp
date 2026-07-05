@@ -51,7 +51,7 @@ class Solution
         Graph graph(numCourses);
         for (auto &prerequisite : prerequisites)
         {
-            graph.at(prerequisite.front()).push_back(prerequisite.back());
+            graph.at(prerequisite.back()).push_back(prerequisite.front());
         }
 
         // check if there's any cycle

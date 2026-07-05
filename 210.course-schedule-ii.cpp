@@ -45,6 +45,10 @@ class Solution
   public:
     vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites)
     {
+        // topological sorting
+
+        // DFS
+        // build graph
         Graph graph(numCourses);
         for (auto &prerequisite : prerequisites)
         {
@@ -63,6 +67,8 @@ class Solution
         return ans;
 
         /*
+        // Kahn's algo. (BFS)
+        // build graph
         using Graph = vector<pair<int, vector<int>>>; // indegree, neighbors
         Graph graph(numCourses);
         for (auto &prerequisite : prerequisites)
@@ -72,7 +78,7 @@ class Solution
         }
 
         vector<int> ans;
-        ans.reserve(numCourses);
+        ans.reserve(numCourses); // Notes: must reserve first in case iterator being invalid after reallocation!
         for (int i = 0; i < numCourses; i++)
         {
             if (!graph.at(i).first)
@@ -89,7 +95,6 @@ class Solution
                 int &indegree = graph.at(neighbor).first;
                 if (!--indegree)
                 {
-                    // Notes: must reserve first in case iterator being invalid after reallocation!
                     ans.push_back(neighbor);
                 }
             }

@@ -22,13 +22,13 @@ class Solution
             {
                 return 3;
             }
-            if (op == '+' || op == '-')
-            {
-                return 1;
-            }
             if (op == '*' || op == '/')
             {
                 return 2;
+            }
+            if (op == '+' || op == '-')
+            {
+                return 1;
             }
             return -1;
         };
@@ -43,22 +43,21 @@ class Solution
             auto rhs = s.top();
             s.pop();
             auto lhs = s.top();
-            s.pop();
             if (op == '+')
             {
-                s.push(lhs + rhs);
+                s.top() = lhs + rhs;
             }
             else if (op == '-')
             {
-                s.push(lhs - rhs);
+                s.top() = lhs - rhs;
             }
             else if (op == '*')
             {
-                s.push(lhs * rhs);
+                s.top() = lhs * rhs;
             }
             else if (op == '/')
             {
-                s.push(lhs / rhs);
+                s.top() = lhs / rhs;
             }
         };
 
