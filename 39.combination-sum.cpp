@@ -19,17 +19,18 @@ class Solution
             return;
         }
 
-        if (target < 0)
-        {
-            return;
-        }
-
         for (size_t i = cand_index; i < candidiates.size(); i++)
         {
             const int cand_val = candidiates.at(i);
+            const int new_target = target - cand_val;
+            if (new_target < 0)
+            {
+                break;
+            }
+
+            // new_target >= 0
             curr_comb.push_back(cand_val);
-            // may add early exit condition for optimization
-            combinationSum_helper(i, target - cand_val, curr_comb, ans, candidiates);
+            combinationSum_helper(i, new_target, curr_comb, ans, candidiates);
             curr_comb.pop_back();
         }
     }

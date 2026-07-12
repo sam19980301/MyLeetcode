@@ -27,7 +27,7 @@ class Solution
                 r_it = m_it;
             }
         }
-        auto shift_index = static_cast<int>(distance(nums.begin(), r_it));
+        auto shift_index = static_cast<int>(distance(nums.begin(), r_it /* l_it */));
 
         // trivial binary search
         size_t lo = 0;

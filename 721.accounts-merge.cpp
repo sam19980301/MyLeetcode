@@ -42,20 +42,23 @@ class Solution
 
         void union_set(const size_t x, const size_t y)
         {
-            DisjointSetNode &node_x = arr.at(find_set(x));
-            DisjointSetNode &node_y = arr.at(find_set(y));
-            if (node_x.parent == node_y.parent)
+            const size_t root_x = find_set(x);
+            const size_t root_y = find_set(y);
+            if (root_x == root_y)
             {
                 return;
             }
 
+            DisjointSetNode &node_x = arr.at(root_x);
+            DisjointSetNode &node_y = arr.at(root_y);
+
             if (node_x.rank < node_y.rank)
             {
-                node_x.parent = node_y.parent;
+                node_x.parent = root_y;
             }
             else
             {
-                node_y.parent = node_x.parent;
+                node_y.parent = root_x;
                 node_x.rank = max(node_x.rank, 1 + node_y.rank);
             }
         }

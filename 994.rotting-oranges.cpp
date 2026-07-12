@@ -28,7 +28,7 @@ class Solution
         {
             for (int j = 0; j < n; j++)
             {
-                const int &val = grid.at(i).at(j);
+                const int val = grid.at(i).at(j);
                 if (val == kFresh)
                 {
                     fresh_cnt++;
@@ -52,7 +52,7 @@ class Solution
                 {
                     const int r = i + dr;
                     const int c = j + dc;
-                    if (r < 0 || cmp_greater_equal(r, m) || c < 0 || cmp_greater_equal(c, n))
+                    if (r < 0 || r >= m || c < 0 || c >= n)
                     {
                         continue;
                     }

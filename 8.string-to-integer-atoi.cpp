@@ -13,7 +13,7 @@ class Solution
     int myAtoi(string s)
     {
         auto it = s.begin();
-        while (it != s.end() && *it == ' ')
+        while (it != s.end() && isspace(*it))
         {
             it++;
         }

@@ -32,6 +32,11 @@ class Solution
             return static_cast<int>(distance(nums.begin(), l_it));
         }
         return -1;
+
+        /*
+        auto it = ranges::lower_bound(nums, target, less<>());
+        return (it != nums.end() && *it == target) ? static_cast<int>(distance(nums.begin(), it)) : -1;
+        */
     }
 };
 // @lc code=end

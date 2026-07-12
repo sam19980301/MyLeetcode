@@ -34,6 +34,30 @@ class Solution
         invertTree(root->left);
         invertTree(root->right);
         return root;
+
+        /*
+        if (!root)
+        {
+            return nullptr;
+        }
+
+        stack<TreeNode *> s{{root}};
+        while (!s.empty())
+        {
+            TreeNode *node = s.top();
+            s.pop();
+            swap(node->left, node->right);
+            if (node->left)
+            {
+                s.push(node->left);
+            }
+            if (node->right)
+            {
+                s.push(node->right);
+            }
+        }
+        return root;
+        */
     }
 };
 // @lc code=end

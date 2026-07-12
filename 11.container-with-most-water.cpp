@@ -17,9 +17,9 @@ class Solution
         auto r_it = height.end() - 1;
         while (l_it < r_it)
         {
-            ans = max(ans, static_cast<int>(distance(l_it, r_it)) * min(*l_it, *r_it));
             const int l_val = *l_it;
             const int r_val = *r_it;
+            ans = max(ans, static_cast<int>(distance(l_it, r_it)) * min(l_val, r_val));
             if (l_val < r_val)
             {
                 l_it++;

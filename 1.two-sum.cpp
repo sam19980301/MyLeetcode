@@ -16,7 +16,7 @@ class Solution
         for (auto v_it = nums.begin(); v_it != nums.end(); v_it++)
         {
             auto m_it = m.find(target - *v_it);
-            const int idx = static_cast<int>(v_it - nums.begin());
+            const int idx = static_cast<int>(distance(nums.begin(), v_it));
             if (m_it != m.end())
             {
                 return {m_it->second, idx};

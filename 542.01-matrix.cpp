@@ -35,24 +35,29 @@ class Solution
             }
         }
 
+        int curr_dist = 0;
         while (!q.empty())
         {
-            auto [i, j] = q.front();
-            q.pop();
-            const int curr_dist = ans.at(i).at(j) + 1;
-            for (auto [dr, dc] : dirs)
+            curr_dist++;
+            auto qs = q.size();
+            while (qs--)
             {
-                const int r = i + dr;
-                const int c = j + dc;
-                if (r < 0 || r >= m || c < 0 || c >= n)
+                auto [i, j] = q.front();
+                q.pop();
+                for (auto [dr, dc] : dirs)
                 {
-                    continue;
-                }
-                int &best_dist = ans.at(r).at(c);
-                if (curr_dist < best_dist)
-                {
-                    best_dist = curr_dist;
-                    q.emplace(r, c);
+                    const int r = i + dr;
+                    const int c = j + dc;
+                    if (r < 0 || r >= m || c < 0 || c >= n)
+                    {
+                        continue;
+                    }
+                    int &best_dist = ans.at(r).at(c);
+                    if (curr_dist < best_dist)
+                    {
+                        best_dist = curr_dist;
+                        q.emplace(r, c);
+                    }
                 }
             }
         }
