@@ -24,25 +24,25 @@ using namespace std;
 class Solution
 {
   private:
-    void kthSmallest_helper(TreeNode *node, int &k, int &ans)
+    bool kthSmallest_helper(TreeNode *node, int &k, int &ans)
     {
-        if (!node || k <= 0)
+        if (!node)
         {
-            return;
+            return false;
         }
 
-        kthSmallest_helper(node->left, k, ans);
-        if (k < 0)
+        if (kthSmallest_helper(node->left, k, ans))
         {
-            return;
+            return true;
         }
 
         if (!--k)
         {
             ans = node->val;
-            return;
+            return true;
         }
-        kthSmallest_helper(node->right, k, ans);
+
+        return kthSmallest_helper(node->right, k, ans);
     }
 
   public:

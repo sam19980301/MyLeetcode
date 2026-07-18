@@ -47,8 +47,9 @@ class Codec
         }
         int node_value = 0;
         iss >> node_value;
-        auto *node = new TreeNode(node_value); // NOLINT(cppcoreguidelines-owning-memory)
-        iss.get();                             // kSeperator
+        // NOLINTNEXTLINE(cppcoreguidelines-owning-memory)
+        auto *node = new TreeNode(node_value);
+        iss.get(); // kSeperator
         node->left = deserialize_helper(iss);
         iss.get(); // kSeperator
         node->right = deserialize_helper(iss);

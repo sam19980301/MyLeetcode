@@ -37,9 +37,9 @@ class Solution
             return lhs->val > rhs->val;
         };
 
-        priority_queue<ListNode *, vector<ListNode *>, decltype(greater_listnode)> q(lists.begin(), lists.end());
         unique_ptr<ListNode> sentinel = make_unique<ListNode>();
         ListNode *curr = sentinel.get();
+        priority_queue<ListNode *, vector<ListNode *>, decltype(greater_listnode)> q(lists.begin(), lists.end());
         while (!q.empty() && q.top())
         {
             ListNode *node = q.top();
@@ -48,6 +48,18 @@ class Solution
             curr = curr->next;
             q.push(node->next);
         }
+        /*
+        ranges::make_heap(lists, greater_listnode);
+        while (!lists.empty() && lists.front())
+        {
+            ranges::pop_heap(lists, greater_listnode);
+            ListNode *&node = lists.back();
+            curr->next = node;
+            curr = curr->next;
+            node = node->next;
+            ranges::push_heap(lists, greater_listnode);
+        }
+        */
         return sentinel->next;
     }
 };
